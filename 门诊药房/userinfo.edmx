@@ -1,0 +1,78 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="1.0" xmlns:edmx="http://schemas.microsoft.com/ado/2007/06/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="userinfoModel.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2008" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2006/04/edm/ssdl">
+        <EntityContainer Name="userinfoModelStoreContainer">
+          <EntitySet Name="Tb_userinfo" EntityType="userinfoModel.Store.Tb_userinfo" store:Type="Tables" store:Schema="dbo" store:Name="Tb_userinfo">
+            <DefiningQuery>SELECT 
+      [Tb_userinfo].[Userid] AS [Userid], 
+      [Tb_userinfo].[Userpassword] AS [Userpassword]
+      FROM [dbo].[Tb_userinfo] AS [Tb_userinfo]</DefiningQuery>
+          </EntitySet>
+        </EntityContainer>
+        <!--生成过程中发现错误:
+      警告 6002: 表/视图“userinfo.dbo.Tb_userinfo”未定义主键。已推断出该键，并将定义创建为只读的表/视图。
+      -->
+        <EntityType Name="Tb_userinfo">
+          <Key>
+            <PropertyRef Name="Userid" />
+            <PropertyRef Name="Userpassword" />
+          </Key>
+          <Property Name="Userid" Type="nvarchar" Nullable="false" MaxLength="50" />
+          <Property Name="Userpassword" Type="varchar" Nullable="false" MaxLength="50" />
+        </EntityType>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="userinfoModel" Alias="Self" xmlns="http://schemas.microsoft.com/ado/2006/04/edm">
+        <EntityContainer Name="userinfoEntities">
+          <EntitySet Name="Tb_userinfo" EntityType="userinfoModel.Tb_userinfo" />
+        </EntityContainer>
+        <EntityType Name="Tb_userinfo">
+          <Key>
+            <PropertyRef Name="Userid" />
+            <PropertyRef Name="Userpassword" />
+          </Key>
+          <Property Name="Userid" Type="String" Nullable="false" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="Userpassword" Type="String" Nullable="false" MaxLength="50" Unicode="false" FixedLength="false" />
+        </EntityType>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="urn:schemas-microsoft-com:windows:storage:mapping:CS">
+        <EntityContainerMapping StorageEntityContainer="userinfoModelStoreContainer" CdmEntityContainer="userinfoEntities">
+          <EntitySetMapping Name="Tb_userinfo">
+            <EntityTypeMapping TypeName="IsTypeOf(userinfoModel.Tb_userinfo)">
+              <MappingFragment StoreEntitySet="Tb_userinfo">
+                <ScalarProperty Name="Userid" ColumnName="Userid" />
+                <ScalarProperty Name="Userpassword" ColumnName="Userpassword" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2007/06/edmx">
+    <edmx:Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </edmx:Connection>
+    <edmx:Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+      </DesignerInfoPropertySet>
+    </edmx:Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram Name="userinfo">
+        <EntityTypeShape EntityType="userinfoModel.Tb_userinfo" Width="1.5" PointX="0.75" PointY="0.75" Height="1.3658455403645831" IsExpanded="true" /></Diagram></edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

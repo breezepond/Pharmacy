@@ -1,0 +1,13 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="urn:schemas-microsoft-com:windows:storage:mapping:CS">
+  <EntityContainerMapping StorageEntityContainer="userinfoModelStoreContainer" CdmEntityContainer="userinfoEntities">
+    <EntitySetMapping Name="Tb_userinfo">
+      <EntityTypeMapping TypeName="IsTypeOf(userinfoModel.Tb_userinfo)">
+        <MappingFragment StoreEntitySet="Tb_userinfo">
+          <ScalarProperty Name="Userid" ColumnName="Userid" />
+          <ScalarProperty Name="Userpassword" ColumnName="Userpassword" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>
